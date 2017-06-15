@@ -14,8 +14,8 @@ namespace Plasticfloor.Money
     [Serializable]
     public struct Money : IComparable<Money>, IComparable, IXmlSerializable
     {
-       
-        public Money(decimal amount, Currencies currency)
+
+        public Money(decimal amount, Currency currency)
         {
             Amount = amount;
             Currency = currency;
@@ -23,35 +23,31 @@ namespace Plasticfloor.Money
 
         public decimal Amount { get; private set; }
 
-        public Currencies Currency { get; private set; }
+        public Currency Currency { get; private set; }
 
         public Money ToAmount(decimal amount) => new Money(amount, Currency);
 
         #region Math
 
-        public Money Add(decimal add) => new Money(Amount + add, Currency);
-
-        public Money Subtract(decimal subtract) => new Money(Amount - subtract, Currency);
-
-        public Money Multiply(decimal by) => new Money(Amount * by, Currency);
-
-        public Money Divide(decimal by) => new Money(Amount / by, Currency);
-
-        public static Money operator +(Money m1, Money m2)
+        public static Money operator +(decimal d, Money m)
         {
-            RequireSameCurrency(m1, m2);
-            return new Money(m1.Amount + m2.Amount, m1.Currency);
-        }
-
-        public static Money operator -(Money m1, Money m2)
-        {
-            RequireSameCurrency(m1, m2);
-            return new Money(m1.Amount - m2.Amount, m1.Currency);
+            return new Money(m.Amount + d, m.Currency);
         }
 
         public static Money operator +(Money m, decimal d)
         {
-            return new Money(m.Amount + d, m.Currency);
+            return d + m;
+        }
+
+        public static Money operator +(Money m1, Money m2)
+        {
+            RequireSameCurrency(m1, m2);
+            return m1 + m2.Amount;
+        }
+
+        public static Money operator -(decimal d, Money m)
+        {
+            return new Money(d - m.Amount, m.Currency);
         }
 
         public static Money operator -(Money m, decimal d)
@@ -59,19 +55,15 @@ namespace Plasticfloor.Money
             return new Money(m.Amount - d, m.Currency);
         }
 
-        public static Money operator +(decimal d, Money m)
+        public static Money operator -(Money m1, Money m2)
         {
-            return new Money(m.Amount + d, m.Currency);
+            RequireSameCurrency(m1, m2);
+            return m1 - m2.Amount;
         }
 
-        public static Money operator -(decimal d, Money m)
+        public static Money operator *(Money m, decimal d)
         {
-            return new Money(m.Amount - d, m.Currency);
-        }
-
-        public static Money operator *(Money m1, decimal d)
-        {
-            return new Money(m1.Amount * d, m1.Currency);
+            return new Money(m.Amount * d, m.Currency);
         }
 
         public static Money operator /(Money m1, decimal d)
@@ -79,9 +71,32 @@ namespace Plasticfloor.Money
             return new Money(m1.Amount / d, m1.Currency);
         }
 
-        public static Money operator *(Money m1, long l)
+        public Money Add(decimal add) => this + add;
+
+        public Money Subtract(decimal subtract) => this - subtract;
+
+        public Money Multiply(decimal by) => this * by;
+
+        public Money Divide(decimal by) => this / by;
+
+        public Money Add(Money add)
         {
-            return new Money(m1.Amount * l, m1.Currency);
+            return this + add;
+        }
+
+        public Money Subtract(Money subtract)
+        {
+            return this - subtract;
+        }
+
+        public static Money operator *(Money m, long l)
+        {
+            return new Money(m.Amount * l, m.Currency);
+        }
+
+        public static Money operator *(long l, Money m)
+        {
+            return m * l;
         }
 
         public static Money operator /(Money m1, long l)
@@ -203,16 +218,16 @@ namespace Plasticfloor.Money
             return m.Amount <= d;
         }
 
-       public int CompareTo(decimal d)
+        public int CompareTo(decimal d)
         {
             return Amount.CompareTo(d);
         }
 
-#endregion
-        
+        #endregion
+
         #region XmlSerialization
 
-             private const string XmlAmountAttribute = "amount";
+        private const string XmlAmountAttribute = "amount";
         private const string CurrencyAttribute = "currency";
 
         public XmlSchema GetSchema()
@@ -223,7 +238,7 @@ namespace Plasticfloor.Money
         public void ReadXml(XmlReader reader)
         {
             if (decimal.TryParse(reader.GetAttribute(XmlAmountAttribute), out decimal amount)
-                && Enum.TryParse(reader.GetAttribute(CurrencyAttribute), out Currencies currency))
+                && Enum.TryParse(reader.GetAttribute(CurrencyAttribute), out Currency currency))
             {
                 Amount = amount;
                 Currency = currency;
@@ -244,6 +259,10 @@ namespace Plasticfloor.Money
                 throw new CurrencyMismatchException(m1.Currency, m2.Currency);
         }
 
+        /// <summary>
+        /// Not intended for UI.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return string.Concat(Amount.ToString(CultureInfo.CurrentUICulture), " ", Currency.ToString());

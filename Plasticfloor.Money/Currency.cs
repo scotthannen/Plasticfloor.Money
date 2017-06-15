@@ -2,7 +2,7 @@ using System.ComponentModel;
 
 namespace Plasticfloor.Money
 {
-    public enum Currencies
+    public enum Currency
     {
         Unknown = 0,
         [Description("United Arab Emirates dirham")] AED = 784,

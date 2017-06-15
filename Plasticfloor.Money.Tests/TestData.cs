@@ -4,7 +4,7 @@
     {
         public static Money Amount(decimal amount)
         {
-            return Currencies.USD.Amount(amount);
+            return Currency.USD.Amount(amount);
         }
     }
 }

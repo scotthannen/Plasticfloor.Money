@@ -10,16 +10,16 @@ namespace Plasticfloor.Money.Tests
         [ExpectedException(typeof(CurrencyMismatchException))]
         public void ComparisonThrowsExceptionForCurrencyMismatch()
         {
-            var m1 = new Money(5, Currencies.USD);
-            var m2 = new Money(4, Currencies.CAD);
+            var m1 = new Money(5, Currency.USD);
+            var m2 = new Money(4, Currency.CAD);
             var comparison = m1.CompareTo(m2);
         }
 
         [TestMethod]
         public void MoneyComparesToMoneyCorrectly()
         {
-            var m1 = new Money(5, Currencies.USD);
-            var m2 = new Money(4, Currencies.USD);
+            var m1 = new Money(5, Currency.USD);
+            var m2 = new Money(4, Currency.USD);
             Assert.IsTrue(m1.CompareTo(m2) == m1.Amount.CompareTo(m2.Amount));
         }
 

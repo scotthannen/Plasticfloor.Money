@@ -12,7 +12,7 @@ namespace Plasticfloor.Money.Tests
         [TestMethod]
         public void DataContractSerializesAndDeserializes()
         {
-            var original = Currencies.USD.Amount(1.11111m);
+            var original = Currency.USD.Amount(1.11111m);
             var bytes = Serialize(original);
             var deserialized = Deserialize(bytes);
             Assert.AreEqual(original, deserialized);

@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Currencies.cs" />
+    <Compile Include="Currency.cs" />
     <Compile Include="CurrencyMismatchException.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="MoneyDto.cs" />

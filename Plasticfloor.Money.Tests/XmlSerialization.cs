@@ -12,7 +12,7 @@ namespace Plasticfloor.Money.Tests
         [TestMethod]
         public void XmlSerializesAndDeserializes()
         {
-            var original = Currencies.USD.Amount(1.11111m);
+            var original = Currency.USD.Amount(1.11111m);
             var xml = SerializeXml(original);
             var deserialized = DeserializeXml(xml);
             Assert.AreEqual(original, deserialized);
@@ -21,10 +21,10 @@ namespace Plasticfloor.Money.Tests
         [TestMethod]
         public void InvalidCurrencyDeserializesToDefaults()
         {
-            var xml = SerializeXml(Currencies.EUR.Amount(5)).Replace("EUR", "XYZ");
+            var xml = SerializeXml(Currency.EUR.Amount(5)).Replace("EUR", "XYZ");
             var deserialized = DeserializeXml(xml);
             Assert.IsTrue(xml.Contains("XYZ"));
-            Assert.AreEqual(deserialized, Currencies.Unknown.Amount(0));
+            Assert.AreEqual(deserialized, Currency.Unknown.Amount(0));
         }
 
         private string SerializeXml(Money money)

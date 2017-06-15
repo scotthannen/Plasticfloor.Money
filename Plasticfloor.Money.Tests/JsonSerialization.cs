@@ -10,7 +10,7 @@ namespace Plasticfloor.Money.Tests
         [TestMethod]
         public void JsonSerializesAndDeserializes()
         {
-            var original = Currencies.AED.Amount(3.45678m);
+            var original = Currency.AED.Amount(3.45678m);
             var serialized = JsonConvert.SerializeObject(original);
             var deserialized = JsonConvert.DeserializeObject<Money>(serialized);
             Assert.AreEqual(original, deserialized);
@@ -25,7 +25,7 @@ namespace Plasticfloor.Money.Tests
         [TestMethod]
         public void JsonContainsPropertyNames()
         {
-            var original = Currencies.AED.Amount(3.45678m);
+            var original = Currency.AED.Amount(3.45678m);
             var serialized = JsonConvert.SerializeObject(original);
             Assert.IsTrue(serialized.IndexOf("amount", StringComparison.OrdinalIgnoreCase) > -1);
             Assert.IsTrue(serialized.IndexOf("currency", StringComparison.OrdinalIgnoreCase) > -1);
