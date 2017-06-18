@@ -26,6 +26,8 @@ namespace Plasticfloor.Money.Tests
         {
             Assert.AreEqual(Usd.Amount(10) *5, Usd.Amount(50));
             Assert.AreEqual(Usd.Amount(10) * 1.2345m, Usd.Amount(12.345m));
+            long v = 10;
+            Assert.AreEqual(Usd.Amount(10) * v, Usd.Amount(100));
         }
 
         [TestMethod]
@@ -33,6 +35,8 @@ namespace Plasticfloor.Money.Tests
         {
             Assert.AreEqual(Usd.Amount(50) / 5, Usd.Amount(10));
             Assert.AreEqual(Usd.Amount(12.345m) / 10, Usd.Amount(1.2345m));
+            long v = 10;
+            Assert.AreEqual(Usd.Amount(1000) / v, Usd.Amount(100));
         }
     }
 }
