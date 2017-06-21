@@ -241,20 +241,30 @@ namespace Plasticfloor.Money
             }
         }
 
-        public int CompareTo(Money other)
+        /// <summary>
+        /// Compares this instance to another <see cref="Money">Money</see> value of the same currency and returns an indication of their relative values. 
+        /// </summary>
+        /// <param name="value">The Money value to compare to this instance.</param>
+        /// <returns>A signed number indicating the relative values of this instance and value.</returns>
+        public int CompareTo(Money value)
         {
-            RequireSameCurrency(this, other);
-            return Amount.CompareTo(other.Amount);
+            RequireSameCurrency(this, value);
+            return Amount.CompareTo(value.Amount);
         }
 
-        public int CompareTo(object obj)
+        /// <summary>
+        /// Compares this instance to another object and returns an indication of their relative values. 
+        /// </summary>
+        /// <param name="value">The object to compare to this instance, or <c>null</c>.</param>
+        /// <returns>A signed number indicating the relative values of this instance and value.</returns>
+        public int CompareTo(object value)
         {
-            if (obj == null) throw new ArgumentNullException(nameof(obj));
-            if (obj is Money) return CompareTo((Money)obj);
-            throw new ArgumentException($"Cannot compare type {obj.GetType()} to type Money.");
+            if (value == null) throw new ArgumentNullException(nameof(value));
+            if (value is Money) return CompareTo((Money)value);
+            throw new ArgumentException($"Cannot compare type {value.GetType()} to type Money.");
         }
 
-        public static bool operator ==(Money m1, Money m2)
+        public static bool operator == (Money m1, Money m2)
         {
             RequireSameCurrency(m1, m2);
             return m1.Amount.Equals(m2.Amount);
@@ -310,9 +320,14 @@ namespace Plasticfloor.Money
             return m.Amount <= d;
         }
 
-        public int CompareTo(decimal d)
+        /// <summary>
+        /// Compares this instance to a decimal value and returns an indication of their relative values. 
+        /// </summary>
+        /// <param name="value">The decimal value to compare to this instance.</param>
+        /// <returns>A signed number indicating the relative values of this instance and value.</returns>
+        public int CompareTo(decimal value)
         {
-            return Amount.CompareTo(d);
+            return Amount.CompareTo(value);
         }
 
         #endregion
@@ -345,7 +360,7 @@ namespace Plasticfloor.Money
 
         #endregion
 
-        public static void RequireSameCurrency(Money m1, Money m2)
+        private static void RequireSameCurrency(Money m1, Money m2)
         {
             if (!m1.Currency.Equals(m2.Currency))
                 throw new CurrencyMismatchException(m1.Currency, m2.Currency);
