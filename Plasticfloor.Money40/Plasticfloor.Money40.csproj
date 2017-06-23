@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3A18FF12-7641-422B-8D26-C03656D5AB28}</ProjectGuid>
+    <ProjectGuid>{D1B8DF42-0C44-47EE-B60C-B09729B24121}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Plasticfloor.Money</RootNamespace>
     <AssemblyName>Plasticfloor.Money</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -39,8 +39,8 @@
     <Compile Include="Currency.cs" />
     <Compile Include="CurrencyMismatchException.cs" />
     <Compile Include="Extensions.cs" />
-    <Compile Include="MoneyDto.cs" />
     <Compile Include="Money.cs" />
+    <Compile Include="MoneyDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

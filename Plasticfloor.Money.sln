@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plasticfloor.Money", "Plast
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plasticfloor.Money.Tests", "Plasticfloor.Money.Tests\Plasticfloor.Money.Tests.csproj", "{ECAD371C-9438-4B61-9151-5A5F587551D0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plasticfloor.Money40", "Plasticfloor.Money40\Plasticfloor.Money40.csproj", "{D1B8DF42-0C44-47EE-B60C-B09729B24121}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plasticfloor.Money35", "Plasticfloor.Money35\Plasticfloor.Money35.csproj", "{534D8B3B-A829-4F01-AC34-9751A7E1107C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{ECAD371C-9438-4B61-9151-5A5F587551D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECAD371C-9438-4B61-9151-5A5F587551D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECAD371C-9438-4B61-9151-5A5F587551D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1B8DF42-0C44-47EE-B60C-B09729B24121}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1B8DF42-0C44-47EE-B60C-B09729B24121}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1B8DF42-0C44-47EE-B60C-B09729B24121}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1B8DF42-0C44-47EE-B60C-B09729B24121}.Release|Any CPU.Build.0 = Release|Any CPU
+		{534D8B3B-A829-4F01-AC34-9751A7E1107C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{534D8B3B-A829-4F01-AC34-9751A7E1107C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{534D8B3B-A829-4F01-AC34-9751A7E1107C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{534D8B3B-A829-4F01-AC34-9751A7E1107C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
