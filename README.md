@@ -1,6 +1,5 @@
 # Plasticfloor.Money
-Plasticfloor.Money is currency and amount, and nothing else. It doesn't convert. It doesn't format because it doesn't know how you want
-your currency to look. Those are worthy causes to address in other projects, but not in this one. This is an abstraction of money.
+Plasticfloor.Money is currency and amount, and nothing else. It doesn't convert currencies. It doesn't format because it doesn't know how you want your currency to look. Those are worthy causes to address in other projects, but not in this one. This is an abstraction of money.
 
 Download the [NuGet package](https://www.nuget.org/packages/Plasticfloor.Money).
 
