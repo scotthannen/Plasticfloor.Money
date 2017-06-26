@@ -10,7 +10,7 @@ var rounded = Money.Round(moreMoney, 2);
 var roundedHowYouWantIt = Money.Round(moreMoney, 2, MidpointRounding.AwayFromZero);
 decimal amount = money.Amount;
 decimal implicitlyConverted = money;
-var currency = money.Currency;
+var notAllowed = new Money(1, Currency.EUR) + new Money(1, Currency.USD); // CurrencyMismatchException
 ```
 
 - It's immutable.
