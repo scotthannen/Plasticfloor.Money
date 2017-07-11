@@ -44,11 +44,6 @@ namespace Plasticfloor.Money
         /// <returns>A Money value with the same currency as this instance and the specified amount.</returns>
         public Money ToAmount(decimal amount) => new Money(amount, Currency);
 
-        public static implicit operator decimal(Money m)
-        {
-            return m.Amount;
-        }
-
         #region Math
 
         /// <summary>

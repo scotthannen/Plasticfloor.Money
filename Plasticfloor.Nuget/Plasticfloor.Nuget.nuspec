@@ -2,7 +2,7 @@
 <package >
     <metadata>
         <id>Plasticfloor.Money</id>
-        <version>1.02</version>
+        <version>1.03</version>
         <title>Plasticfloor.Money</title>
         <authors>Scott Hannen</authors>
         <owners>Scott Hannen</owners>
@@ -12,6 +12,10 @@
         <releaseNotes>Intial release</releaseNotes>
         <copyright>Copyright 2017</copyright>
         <tags>Money</tags>
+        <iconUrl>http://scotthannen.org/images/plasticfloor_money_nuget_icon.png</iconUrl>      
+        <frameworkAssemblies>
+            <frameworkAssembly assemblyName="System.Xml" />
+        </frameworkAssemblies>
     </metadata>
     <files>
         <file src="lib\**" target="lib" />

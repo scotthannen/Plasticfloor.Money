@@ -12,7 +12,7 @@ namespace Plasticfloor.Money.Tests
         {
             var m1 = new Money(5, Currency.USD);
             var m2 = new Money(4, Currency.CAD);
-            var comparison = m1.CompareTo(m2);
+            m1.CompareTo(m2);
         }
 
         [TestMethod]
