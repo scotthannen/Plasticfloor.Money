@@ -2,6 +2,7 @@
 Plasticfloor.Money is currency and amount, and nothing else. It doesn't convert currencies. It doesn't format because it doesn't know how you want your money to look. Those are worthy causes to address in other projects, but not in this one. This is an abstraction of money.
 
 Download the [NuGet package](https://www.nuget.org/packages/Plasticfloor.Money).
+Provide input on [codereview.stackexchange.com](https://codereview.stackexchange.com/questions/165716/struct-for-money-and-currencies) or [e-mail me directly](mailto:scotthannen@gmail.com).
 
 ```csharp
 var money = new Money(5.05M, Currency.HRK);
